@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class UrlCache {
 
-	HashMap<String, WebObject> localCache;
+	HashMap<String, WebObject> catalog;
 	
     /**
      * Default constructor to initialize data structures used for caching/etc
@@ -20,7 +20,7 @@ public class UrlCache {
      * @throws IOException if encounters any errors/exceptions
      */
 	public UrlCache() throws IOException {
-		localCache = new HashMap<String, WebObject>();
+		catalog = new HashMap<String, WebObject>();
 		
 	}
 	
@@ -42,17 +42,21 @@ public class UrlCache {
      * @throws IOException if encounters any errors/exceptions
      */
 	public void getObject(String url) throws IOException {
-		WebObject wo;
-		try { 
-			// TODO: Lookup the object in the cache, update if necessary
-			wo = localCache.get(url);
-			
-		} catch (Exception e) { //
-			// TODO: Go get the object
-		} finally {
-			// TODO: Save the object into the cache
+		try {
+			WebObject obj = catalog.get(url);
+			long lastModifiedFromWeb = getLastModified(url);
+			long lastModifiedCatalog = obj.lastModified();
+			if (lastModifiedFromWeb > lastModifiedCatalog) {
+				
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
+	}
+	
+	private WebObject fetchObject(String url) {
+		return null;
 	}
 	
     /**
@@ -63,7 +67,6 @@ public class UrlCache {
      */
 	public long getLastModified(String url) {
 		long millis = 0;
-		
 		return millis;
 	}
 	
