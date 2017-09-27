@@ -71,7 +71,10 @@ public class UrlCache {
 	}
 	
 	public void conditionalGet(String url){
-		
+		WebObject obj = catalog.get(url);
+		if (obj == null || obj.lastModified() < getLastModified(url)){
+			catalog.put(url, fetchObject(url));
+		}
 		
 	}
 
