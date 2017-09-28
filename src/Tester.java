@@ -24,9 +24,9 @@ public class Tester {
 		// the TAs will use a more comprehensive set of tests
 		try {
 			UrlCache cache = new UrlCache();
-			
-			for (int i = 0; i < url.length; i++)
-				cache.getObject(url[i]);
+			cache.getObject(url[0]);
+			//for (int i = 0; i < url.length; i++) cache.getObject(url[i]);
+				
 			
 			System.out.println("Last-Modified for " + url[0] + " is: " + cache.getLastModified(url[0]));
 			cache.getObject(url[0]);
