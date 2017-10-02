@@ -24,7 +24,7 @@ public class Tester {
 		// the TAs will use a more comprehensive set of tests
 		try {
 			UrlCache cache = new UrlCache();
-			cache.getObject(url[0]);
+			cache.getObject(url[1]);
 			//for (int i = 0; i < url.length; i++) cache.getObject(url[i]);
 				
 			
